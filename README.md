@@ -49,7 +49,7 @@ E.g. If we have configured `Common.Constants.baseUrl` to be `/openmrs/config/` t
 ### Give admin user a username
 The Appointments API leverages the username of the logged-in user. For some reason `admin` user doesn't have a username. It has been fixed in the recent versions but if it is not available we need to provide it. Refer to [this thread](https://talk.openmrs.org/t/admin-user-doesnt-have-a-username/25145)  
 
-### Give admin user a username
+### Give admin user a appointments privileges
 The below privileges are required for `users` to be able to do everything in the appointments module
 * Manage Appointments
 * Manage Appointment Services
