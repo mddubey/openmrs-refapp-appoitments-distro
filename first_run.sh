@@ -35,6 +35,11 @@ docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "INSERT INTO global_
 echo "Give admin user a username"
 docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "UPDATE users SET username ='admin' WHERE system_id = 'admin';"
 
+echo "Create appointment privileges manually, otherwise will be only created after the omod has run"
+docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "INSERT INTO privilege (privilege, description, uuid) VALUES ('Manage Appointments', 'Able to manage Appointments in Appointments module', uuid());"
+docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "INSERT INTO privilege (privilege, description, uuid) VALUES ('Manage Appointment Services', 'Able to manage Appointments in Appointments module', uuid());"
+docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "INSERT INTO privilege (privilege, description, uuid) VALUES ('Manage Appointment Specialities', 'Able to manage Appointments in Appointments module', uuid());"
+
 echo "Give admin user appointment privileges"
 docker exec -it mysql mysql -uopenmrs -ppassword openmrs -e "INSERT INTO role values('Bahmni Role', 'Role for bahmni Appointments', uuid());"
 
